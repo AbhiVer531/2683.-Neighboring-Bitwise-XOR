@@ -1,0 +1,9 @@
+class Solution:
+    def doesValidArrayExist(self, derived: List[int]) -> bool:
+        original = [0]
+        for i in range(len(derived)-1):
+            second = derived[i] ^ original[i]
+            original.append(second)
+        if derived[len(derived)-1] != (original[len(derived)-1] ^ original[0]):
+            return False
+        return True
